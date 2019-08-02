@@ -15,4 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/products/{id}','ProductController@show');
+Route::get('/cats','CatController@index')->name('list_cat');
+//show from create cat
+Route::get('/cats/create','CatController@create')->name('created_cat');
+Route::post('/cats','CatController@store')->name('create_cat');
+//delete cat
+Route::get('/delete/{id}','CatController@destroy')->name('delete_cat');
+//show cat
+Route::get('/breeds/{id}','BreedController@show');
+
+

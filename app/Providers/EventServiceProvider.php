@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Cat;
+use App\Observers\CatObserver;
+use App\User;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -29,6 +32,7 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        //
+        Cat::observe(CatObserver::class);
+       // User::observe(UserObserver::class);
     }
 }
